@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
+  
   <head>
+    <title>Events in New York</title>    
     <style type="text/css">
       html, body { height: 100%; margin: 0; padding: 0; }
       #map { height: 60%; }
     </style>
   </head>
+
   <body>
     <div id="map"></div>
+
+<!-- bring in the backbone libraries-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+    <script>
+      (function($)){
+          alert('script is running');
+      }
+    </script>
+
     <script type="text/javascript">
       var map;
       function initMap() {
