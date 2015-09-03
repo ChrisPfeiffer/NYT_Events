@@ -36,7 +36,7 @@
 
         options.dataType = "jsonp";
         return Backbone.sync(method, collection, options);
-      }     
+      },     
       parse : function(response) {
         return response.data.results;
       }
