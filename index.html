@@ -37,10 +37,30 @@
         options.dataType = "jsonp";
         return Backbone.sync(method, collection, options);
       }     
-    })
+      parse : function(response) {
+        return response.data.results;
+      }
+    });
 
-    var events = new EventModels().fetch();
-    alert(events.count);
+    var events = new EventModels();
+
+    events.fetch({
+      data : {},
+
+      success : function(collection, response, options)
+      {
+        console.log(collection);
+        console.log(response);
+        console.log(options);
+      },
+
+      error : function(collection, response, options) {
+      console.log(response.statusText);
+      },
+  // A timeout is the only way to get an error event for JSONP calls!
+    timeout : 5000
+
+    });
 
   })(jQuery);
   </script>
