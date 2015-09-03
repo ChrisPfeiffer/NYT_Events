@@ -25,12 +25,12 @@
     alert('script is running');
 
     var EventModel = Backbone.Model.extend({
-      urlRoot: 'http://api.nytimes.com/svc/events/v2/listings.json?ll=40.756146,-73.99021&radius=2500&api-key=1b6ec24de1512db2fae47f5165ce39ea:6:69563513'      
+      urlRoot: 'http://api.nytimes.com/svc/events/v2/listings.jsonp?ll=40.756146,-73.99021&radius=2500&api-key=1b6ec24de1512db2fae47f5165ce39ea:6:69563513'      
     })
 
     var EventModels = Backbone.Collection.extend({
       model: EventModel,
-      url: 'http://api.nytimes.com/svc/events/v2/listings.json?ll=40.756146,-73.99021&radius=2500&api-key=1b6ec24de1512db2fae47f5165ce39ea:6:69563513',
+      url: 'http://api.nytimes.com/svc/events/v2/listings.jsonp?ll=40.756146,-73.99021&radius=2500&api-key=1b6ec24de1512db2fae47f5165ce39ea:6:69563513',
       
       sync : function(method, collection, options) {
 
