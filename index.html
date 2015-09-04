@@ -11,6 +11,8 @@
 
 <body>
   <div id="map"></div>
+  <ul id="event-names">
+  </ul>
 
   <!-- bring in the backbone libraries-->
 
@@ -38,8 +40,10 @@
 
     events.fetch();
 
-    console.log(events);
-
+    for each (eventvar in events)
+    {
+      console.log('an event');
+    }
 
   })(jQuery);
   </script>
