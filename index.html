@@ -23,6 +23,8 @@
   <!--create th map opject-->
   <script type="text/javascript">
 
+    $(document).ready(initMap);
+
     $.getJSON('http://events2339.azurewebsites.net/api/events/getevents', function (jsonPayload) {
       $.each(jsonPayload, function(i, item){
         console.log(item.event_id);
@@ -45,9 +47,6 @@
   });
 
   
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5_EfcE8JN5H8FFL1eTYUTahS-jIeYp6U&callback=initMap">
   </script>
 </body>
 </html>
