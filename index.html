@@ -24,8 +24,6 @@
   <script>
   (function($){
 
-    alert('script is running');
-
     var EventModel = Backbone.Model.extend({
       urlRoot: 'http://events2339.azurewebsites.net/api/events/getevents',
       idAttribute: 'event_id'      
@@ -40,39 +38,23 @@
           console.log('inside event');
           console.log(model);
         })
-      },
-
-      parse: function(response)
-      {
-        console.log(response);
-        return response.models;
       }
     });
 
     var events = new EventModels();
-    var eventsResponse;
 
     events.fetch({
       success: function(response, xhr){
         console.log('inside success');
         eventsResponse = response;
+        
+        
       },
 
       error: function (errorResponse){
         console.log(errorResponse);
       }
-
-    }); 
-
-    console.log(events);
-
-    for(index= events.length -1; index>=0; --index)
-    {
-      console.log('iterating');
-    }
-
-
-
+    });
 
   })(jQuery);
   </script>
