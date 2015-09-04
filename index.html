@@ -10,9 +10,8 @@
 </head>
 
 <body>
+  <div id="events"></div>
   <div id="map"></div>
-  <ul id="event-names">
-  </ul>
 
   <!-- bring in the backbone libraries-->
 
@@ -46,7 +45,9 @@
     events.fetch({
       success: function(response, xhr){
         console.log('inside success');
-        console.log(response);      
+        console.log(JSON.stringify(person));      
+
+
 
       },
 
