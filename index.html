@@ -40,6 +40,11 @@
           console.log('inside event');
           console.log(model);
         })
+      },
+
+      parse: function(response)
+      {
+        return response;
       }
     });
 
@@ -58,7 +63,7 @@
 
     }); 
 
-    console.log(eventsResponse);
+    console.log(events);
 
     for(index= events.length -1; index>=0; --index)
     {
