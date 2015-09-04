@@ -29,9 +29,7 @@
 
     var MapView = Backbone.View.extend(
     {
-      el: '#mapcontent',
-
-      render: function(){
+        render: function(){
         var init = function(){
           var mapOptions = {
             center: {lat: 40.7127, lng: -74.0059},
@@ -42,7 +40,8 @@
       }
     });
 
-    var myMap = new MapView();
+    var myMap = new MapView(el: 'mapcontent');
+    console.log('about to render map');
     myMap.render();
 
 
