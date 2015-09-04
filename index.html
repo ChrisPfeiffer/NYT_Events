@@ -23,10 +23,11 @@
   <script type="text/javascript">
 
     $.getJSON('http://events2339.azurewebsites.net/api/events/getevents', function (jsonPayload) {
-    $(jsonPayLoad).each(function (i, item) {
-                console.log(item.event_id);
-                });
-            });
+      $.each(jsonPayload, function(i, item){
+        console.log(item.event_id);
+      }
+      
+      });
 
   var map;
   function initMap() {
