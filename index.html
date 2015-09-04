@@ -19,6 +19,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
   <script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
   <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5_EfcE8JN5H8FFL1eTYUTahS-jIeYp6U"></script>
   
   <!--initialize the collection by calling the NYT api -->  
   <script>
@@ -50,11 +51,6 @@
       urlRoot: 'http://events2339.azurewebsites.net/api/events/getevents',
       idAttribute: 'event_id'      
     })
-
-    var mapView = Backbone.View.extend({
-
-    })
-
 
     var EventModels = Backbone.Collection.extend({
       model: EventModel,
