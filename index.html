@@ -44,7 +44,12 @@
 
   $.getJSON('http://events2339.azurewebsites.net/api/events/getevents', function (jsonPayload) {
     $.each(jsonPayload, function(i, item){
-        console.log(item.event_id);
+      var marker = new google.maps.Marker({
+        position: {lat: item.geocode_latitude, lng: item.geocode_longitude}
+        map: map,
+        title: item.event_id
+      })
+
     });      
   });
 
