@@ -40,10 +40,13 @@
 
     events.fetch();
 
-    for each (eventvar in events)
+    for(index= events.length -1; index>=0; --index)
     {
-      console.log('an event');
+      console.log('iterating');
     }
+
+
+
 
   })(jQuery);
   </script>
