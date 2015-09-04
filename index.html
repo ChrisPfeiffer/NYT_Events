@@ -45,19 +45,20 @@
 
     var events = new EventModels();
 
+
     events.fetch({
       success: function(response, xhr){
         console.log('inside success');
-        console.log(response);
+        var eventsResponse = response;
       },
 
       error: function (errorResponse){
         console.log(errorResponse);
       }
 
-    });
+    }); 
 
-    console.log(events);
+    console.log(eventsResponse);
 
     for(index= events.length -1; index>=0; --index)
     {
