@@ -52,9 +52,10 @@
 
     });
 
-    map.addListener('bounds_changed')
+    map.addListener('idle')
     {
-      console.log('bounds changed');
+      var bounds = map.GetBounds();
+      console.log('idle');
     }
 
   });      
