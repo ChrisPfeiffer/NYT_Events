@@ -49,10 +49,13 @@
         map: map,
         title: 'test_title'
       });
-       
-
 
     });
+
+    map.addListener('bounds_changed')
+    {
+      console.log('bounds changed');
+    }
 
   });      
 };
