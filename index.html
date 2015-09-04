@@ -25,12 +25,6 @@
 
     $(document).ready(initMap);
 
-    $.getJSON('http://events2339.azurewebsites.net/api/events/getevents', function (jsonPayload) {
-      $.each(jsonPayload, function(i, item){
-        console.log(item.event_id);
-      });      
-      });
-
   var map;
   function initMap() {
     var latlng = new google.maps.LatLng(40.7127,-74.0059);
@@ -46,7 +40,15 @@
     position: {lat: 40.7127, lng: -74.0059},
     map: map,
     title: 'First Marker!'
-  })};
+  })
+
+  $.getJSON('http://events2339.azurewebsites.net/api/events/getevents', function (jsonPayload) {
+    $.each(jsonPayload, function(i, item){
+        console.log(item.event_id);
+    });      
+  });
+
+};
 
   
   </script>
