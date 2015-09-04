@@ -21,6 +21,13 @@
   
   <!--create th map opject-->
   <script type="text/javascript">
+
+    $.getJSON('http://events2339.azurewebsites.net/api/events/getevents', function (jsonPayload) {
+    $(contactsJsonPayload).each(function (i, item) {
+                console.log(item.event_id);
+                });
+            });
+
   var map;
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
