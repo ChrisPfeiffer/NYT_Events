@@ -25,7 +25,7 @@
     $.getJSON('http://events2339.azurewebsites.net/api/events/getevents', function (jsonPayload) {
       $.each(jsonPayload, function(i, item){
         console.log(item.event_id);
-      }
+      });
       
       });
 
