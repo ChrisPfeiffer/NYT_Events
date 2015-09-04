@@ -10,9 +10,8 @@
 </head>
 
 <body>
-  <div id="mapcontent">
-    <div id="map"></div>
-  </div>
+  <ul id="events"></ul>
+  <div id="map"></div>
 
   <!-- bring in the backbone libraries-->
 
@@ -20,8 +19,7 @@
   <script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
   <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
   
-  <!--initialize the collection by calling the NYT api -->  
-
+  <!--create th map opject-->
   <script type="text/javascript">
   var map;
   function initMap() {
@@ -47,10 +45,9 @@
     });
 
   }
-
   </script>
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5_EfcE8JN5H8FFL1eTYUTahS-jIeYp6U&callback=initMap">
-  </script>-->
+  </script>
 </body>
 </html>
