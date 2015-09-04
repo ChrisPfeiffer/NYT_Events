@@ -44,12 +44,12 @@
     });
 
     var events = new EventModels();
-
+    var eventsResponse;
 
     events.fetch({
       success: function(response, xhr){
         console.log('inside success');
-        var eventsResponse = response;
+        eventsResponse = response;
       },
 
       error: function (errorResponse){
