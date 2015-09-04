@@ -45,16 +45,15 @@
     events.fetch({
       success: function(response, xhr){
         console.log('inside success');
-        console.log(JSON.stringify(events));      
-
-
-
+        console.log(JSON.stringify(events));
       },
 
       error: function (errorResponse){
         console.log(errorResponse);
       }
     });
+
+    console.log(JSON.stringify(events));
 
   })(jQuery);
   </script>
