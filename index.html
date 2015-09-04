@@ -34,11 +34,28 @@
     var EventModels = Backbone.Collection.extend({
       model: EventModel,
       url: 'http://events2339.azurewebsites.net/api/events/getevents',
+
+      initialize: function() {
+        this.bind("reset", function(model, options){
+          console.log('inside event');
+          console.log(model);
+        })
+      }
     });
 
     var events = new EventModels();
 
-    events.fetch();
+    events.fetch({
+      success: function(response, xhr){
+        console.log('inside success');
+        console.log(response);
+      },
+
+      error: function (errorResponse){
+        console.log(errorResponse);
+      }
+
+    });
 
     console.log(events);
 
