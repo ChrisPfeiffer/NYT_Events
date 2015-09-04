@@ -44,7 +44,8 @@
 
       parse: function(response)
       {
-        return response;
+        console.log(response.models);
+        return response.models;
       }
     });
 
@@ -63,7 +64,7 @@
 
     }); 
 
-    console.log(events.results);
+    console.log(events);
 
     for(index= events.length -1; index>=0; --index)
     {
