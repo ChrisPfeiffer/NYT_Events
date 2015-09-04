@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div id="events"></div>
+  <ul id="events"></ul>
   <div id="map"></div>
 
   <!-- bring in the backbone libraries-->
@@ -40,12 +40,18 @@
       }
     });
 
+    var EventsView = Backbone.View.extend({
+      tagName: 'li',
+
+    });
+
     var events = new EventModels();
 
     events.fetch({
       success: function(response, xhr){
         console.log('inside success');
         console.log(JSON.stringify(events));
+        console.log(events[0].get('event_id'));
       },
 
       error: function (errorResponse){
