@@ -25,7 +25,8 @@
     alert('script is running');
 
     var EventModel = Backbone.Model.extend({
-      urlRoot: 'http://events2339.azurewebsites.net/api/events/getevents'      
+      urlRoot: 'http://events2339.azurewebsites.net/api/events/getevents',
+      idAttribute: 'event_id'      
     })
 
     var EventModels = Backbone.Collection.extend({
