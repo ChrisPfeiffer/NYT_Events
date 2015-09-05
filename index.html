@@ -8,35 +8,35 @@
 </head>
 
 <body>
-    <div id="map"></div>
-    <h3 class="text-center">Categories</h3>
-    <br/>
-    <ul class="checkbox-grid">
-      <li><input type="checkbox" name ="Movies" id="Movies" value = "valMovies" /> <label for = "Movies">Movies</label></li>
-      <li><input type="checkbox" name ="Theater" id="Theater" value = "valTheater" /> <label for = "Theater">Theater</label></li>
-      <li><input type="checkbox" name ="Art" id="Art" value = "valArt" /> <label for = "Art">Art</label></li>
-      <li><input type="checkbox" name ="spareTimes" id="spareTimes" value = "valspareTimes" /> <label for = "spareTimes">Spare Times</label></li>
-      <li><input type="checkbox" name ="forChildren" id="forChildren" value = "valforChildren" /> <label for = "forChildren">For Children</label></li>
-      <li><input type="checkbox" name ="Jazz" id="Jazz" value = "valJazz" /> <label for = "Jazz">Jazz</label></li>
-      <li><input type="checkbox" name ="Pop" id="Pop" value = "valPop" /> <label for = "Pop">Pop</label></li>
-      <li><input type="checkbox" name ="Dance" id="Dance" value = "valDance" /> <label for = "Dance">Dance</label></li>
-      <li><input type="checkbox" name ="Comedy" id="Comedy" value = "valComedy" /> <label for = "Comedy">Comedy</label></li>
-      <li><input type="checkbox" name ="Classical" id="Classical" value = "valClassical" /> <label for = "Classical">Classical</label></li>
-    </ul>    
-    <br/>
-    <br/>
-    <div>
-      <h3 class="text-center">Boroughs</h3>
-    </div>
-    <br/>
-    <ul class="checkbox-grid">
-      <li><input type="checkbox" name="Manhattan" id="Manhattan" value="valManhattan"/><label for = "Manhattan">Manhattan</label></li>
-      <li><input type="checkbox" name="Brooklyn" id="Brooklyn" value="valBrooklyn"/><label for = "Brooklyn">Brooklyn</label></li>
-      <li><input type="checkbox" name="Queens" id="Queens" value="valQueens"/><label for = "Queens">Queens</label></li>
-      <li><input type="checkbox" name="Bronx" id="Bronx" value="valBronx"/><label for = "Bronx">Bronx</label></li>
-      <li><input type="checkbox" name="TheBronx" id="TheBronx" value="valTheBronx"/><label for = "TheBronx">The Bronx</label></li>
-      <li><input type="checkbox" name="StatenIsland" id="StatenIsland" value="valStatenIsland"/><label for = "StatenIsland">Staten Island</label></li>
-    </ul>
+  <div id="map"></div>
+  <h3 class="text-center">Categories</h3>
+  <br/>
+  <ul class="checkbox-grid">
+    <li><input type="checkbox" name ="Movies" id="Movies" value = "valMovies" /> <label for = "Movies">Movies</label></li>
+    <li><input type="checkbox" name ="Theater" id="Theater" value = "valTheater" /> <label for = "Theater">Theater</label></li>
+    <li><input type="checkbox" name ="Art" id="Art" value = "valArt" /> <label for = "Art">Art</label></li>
+    <li><input type="checkbox" name ="spareTimes" id="spareTimes" value = "valspareTimes" /> <label for = "spareTimes">Spare Times</label></li>
+    <li><input type="checkbox" name ="forChildren" id="forChildren" value = "valforChildren" /> <label for = "forChildren">For Children</label></li>
+    <li><input type="checkbox" name ="Jazz" id="Jazz" value = "valJazz" /> <label for = "Jazz">Jazz</label></li>
+    <li><input type="checkbox" name ="Pop" id="Pop" value = "valPop" /> <label for = "Pop">Pop</label></li>
+    <li><input type="checkbox" name ="Dance" id="Dance" value = "valDance" /> <label for = "Dance">Dance</label></li>
+    <li><input type="checkbox" name ="Comedy" id="Comedy" value = "valComedy" /> <label for = "Comedy">Comedy</label></li>
+    <li><input type="checkbox" name ="Classical" id="Classical" value = "valClassical" /> <label for = "Classical">Classical</label></li>
+  </ul>    
+  <br/>
+  <br/>
+  <div>
+    <h3>Boroughs</h3>
+  </div>
+  <br/>
+  <ul class="checkbox-grid">
+    <li><input type="checkbox" name="Manhattan" id="Manhattan" value="valManhattan"/><label for = "Manhattan">Manhattan</label></li>
+    <li><input type="checkbox" name="Brooklyn" id="Brooklyn" value="valBrooklyn"/><label for = "Brooklyn">Brooklyn</label></li>
+    <li><input type="checkbox" name="Queens" id="Queens" value="valQueens"/><label for = "Queens">Queens</label></li>
+    <li><input type="checkbox" name="Bronx" id="Bronx" value="valBronx"/><label for = "Bronx">Bronx</label></li>
+    <li><input type="checkbox" name="TheBronx" id="TheBronx" value="valTheBronx"/><label for = "TheBronx">The Bronx</label></li>
+    <li><input type="checkbox" name="StatenIsland" id="StatenIsland" value="valStatenIsland"/><label for = "StatenIsland">Staten Island</label></li>
+  </ul>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>  
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5_EfcE8JN5H8FFL1eTYUTahS-jIeYp6U&sensor=true"></script>
@@ -44,7 +44,7 @@
   <!--create th map opject-->
   <script type="text/javascript">
 
-    $(document).ready(initMap);
+  $(document).ready(initMap);
 
   var map;
   var markers = [];
@@ -52,26 +52,26 @@
   function initMap() {
     var latlng = new google.maps.LatLng(40.7127,-74.0059);
     var options = {
-        zoom: 15,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+      zoom: 15,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
 
-  map = new google.maps.Map(document.getElementById('map'), options);
+    map = new google.maps.Map(document.getElementById('map'), options);
 
-  var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll=40.7127,-74.0059&radius=5000";
-  $.getJSON(url, function (jsonPayload) {
-    $.each(jsonPayload, function(i, item){
+    var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll=40.7127,-74.0059&radius=5000";
+    $.getJSON(url, function (jsonPayload) {
+      $.each(jsonPayload, function(i, item){
         var marker = new google.maps.Marker({
-        position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
-        map: map,
-        title: 'test_title'
+          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
+          map: map,
+          title: 'test_title'
+        });
+
+        markers.push(marker);
+
       });
-
-      markers.push(marker);
-
     });
-  });
 
     function setMapOnAll(map) {
       for (var i = 0; i < markers.length; i++) {
@@ -80,35 +80,35 @@
     }
 
     function clearMarkers() {
-       setMapOnAll(null);
-    }
+     setMapOnAll(null);
+   }
 
-    map.addListener('idle', function()
-    {
-      var bounds = map.getBounds();
-      var center = map.getCenter();
+   map.addListener('idle', function()
+   {
+    var bounds = map.getBounds();
+    var center = map.getCenter();
 
-      var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
+    var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
 
-      clearMarkers();
-      markers = [];
+    clearMarkers();
+    markers = [];
 
-      $.getJSON(url, function(jsonPayload){
-        $.each(jsonPayload, function(i, item){
-          var marker = new google.maps.Marker({
+    $.getJSON(url, function(jsonPayload){
+      $.each(jsonPayload, function(i, item){
+        var marker = new google.maps.Marker({
           position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
           map: map,
           title: 'test_title2'
         });
-          markers.push(marker);
-        });
+        markers.push(marker);
       });
-
-      console.log(center);
     });
-        
-};
-  
-  </script>
+
+    console.log(center);
+  });
+
+ };
+
+ </script>
 </body>
 </html>
