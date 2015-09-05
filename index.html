@@ -62,6 +62,16 @@
     if($('#Dance').is(':checked')){url=url+"+Dance"}
     if($('#Comedy').is(':checked')){url=url+"+Comedy"}
     if($('#Classical').is(':checked')){url=url+"+Classical"}
+    url = url + "), borough:(";
+
+    if($('#Manhattan').is(':checked')){url=url+"Manhattan"}
+    if($('#Brooklyn').is(':checked')){url=url+"+Brooklyn"}
+    if($('#Queens').is(':checked')){url=url+"+Queens"}
+    if($('#Bronx').is(':checked')){url=url+"+Bronx"}
+    if($('#TheBronx').is(':checked')){url=url+"+The Bronx"}
+    if($('#StatenIsland').is(':checked')){url=url+"+Staten Island"}
+    url=url+")";
+
     return url;
   }
 
@@ -81,7 +91,7 @@
 
     map = new google.maps.Map(document.getElementById('map'), options);
 
-    var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll=40.7127,-74.0059&radius=5000";
+    var url = buildUrl(map.getCenter());//"http://events2339.azurewebsites.net/api/events/getevents?parameters=ll=40.7127,-74.0059&radius=5000";
     $.getJSON(url, function (jsonPayload) {
       $.each(jsonPayload, function(i, item){
         var marker = new google.maps.Marker({
@@ -113,7 +123,7 @@
 
      center = map.getCenter();
 
-    var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
+    var url = buildUrl(center);//"http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
 
     clearMarkers();
     markers = [];
@@ -134,8 +144,23 @@
 
    //the change of a checkbox should cause a new call to the server   
    $('.checkbox').change(function(){
+      
       var url = buildUrl(center);
-      console.log(url);
+
+      clearMarkers();
+      markers = [];
+
+      $.getJSON(url, function(jsonPayload){
+      $.each(jsonPayload, function(i, item){
+        var marker = new google.maps.Marker({
+          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
+          map: map,
+          title: 'test_title2'
+        });
+        markers.push(marker);
+      });
+    });      
+
    });
 
  };
