@@ -41,8 +41,7 @@
   var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+"40.70487622158365"+","+"-74.02377424087524"+"&ne="+ "40.7205879103011" +","+"-73.98811158981323";
   $.getJSON(url, function (jsonPayload) {
     $.each(jsonPayload, function(i, item){
-      alert('here');
-      var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
         position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
         map: map,
         title: 'test_title'
@@ -82,6 +81,8 @@
           markers.push(marker);
         });
       });
+
+      setMapOnAll(map);
 
       console.log(bounds);
     });
