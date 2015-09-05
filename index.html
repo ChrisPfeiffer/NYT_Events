@@ -50,7 +50,7 @@
       markers.push(marker);
 
     });
-  });
+  
 
     function setMapOnAll(map) {
       for (var i = 0; i < markers.length; i++) {
@@ -71,23 +71,23 @@
       //clearMarkers();
       //markers = [];
 
-      $.getJSON(url, function(jsonPayload){
-        $.each(jsonPayload, function(i, item){
-          var marker = new google.maps.Marker({
-          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
-          map: map,
-          title: 'test_title'
-        });
-          markers.push(marker);
-        });
-      });
+      //$.getJSON(url, function(jsonPayload){
+        //$.each(jsonPayload, function(i, item){
+          //var marker = new google.maps.Marker({
+          //position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
+          //map: map,
+          //title: 'test_title'
+        //});
+         // markers.push(marker);
+        //});
+      //});
 
-      setMapOnAll(map);
+      //setMapOnAll(map);
 
       console.log(bounds);
     });
 
-        
+    });        
 };
 
 
