@@ -111,8 +111,9 @@
     console.log(center);
   });
 
+   //the change of a checkbox should cause a new call to the server   
    $('.checkbox').change(function(){
-    console.log('checkbox changed');
+      console.log($('#Movies').is(':checked'));
    });
 
  };
