@@ -50,9 +50,17 @@
 
   function buildUrl(center)
   {
-    console.log($('#Movies').is(':checked'));
-    console.log(center.G);
-    console.log(center.K);
+    var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&facetSearch=category:(";
+    if($('#Movies').is(':checked')){url=url+"Movies"}
+    if($('#Theater').is(':checked')){url=url+"+Theater"}
+    if($('#Art').is(':checked')){url=url+"+Art"}
+    if($('#spareTimes').is(':checked')){url=url+"+spareTimes"}
+    if($('#forChildren').is(':checked')){url=url+"+forChildren"}
+    if($('#Jazz').is(':checked')){url=url+"+Jazz"}
+    if($('#Pop').is(':checked')){url=url+"+Pop"}
+    if($('#Dance').is(':checked')){url=url+"+Dance"}
+    if($('#Comedy').is(':checked')){url=url+"+Comedy"}
+    if($('#Classical').is(':checked')){url=url+"+Classical"}
   }
 
   $(document).ready(initMap);
@@ -124,7 +132,8 @@
 
    //the change of a checkbox should cause a new call to the server   
    $('.checkbox').change(function(){
-      buildUrl(center);
+      var url = buildUrl(center);
+      console.log(url);
    });
 
  };
