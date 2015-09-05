@@ -55,7 +55,11 @@
     map.addListener('idle', function()
     {
       var bounds = map.getBounds();
-      console.log(bounds.Ea.G);
+
+      var url = "http://events2339.azurewebsites.net/api/events/getevents";
+
+
+      console.log(bounds);
     });
 
   });      
