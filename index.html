@@ -44,7 +44,7 @@
     title: 'First Marker!'
   })
 
-  var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.j+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
+  var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+"40"+","+"-74"+"&ne="+ "41" +","+"-73";
   $.getJSON(url, function (jsonPayload) {
     $.each(jsonPayload, function(i, item){
       var marker = new google.maps.Marker({
