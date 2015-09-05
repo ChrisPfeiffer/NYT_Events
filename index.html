@@ -27,6 +27,7 @@
 
   var map;
   var markers = [];
+
   function initMap() {
     var latlng = new google.maps.LatLng(40.7127,-74.0059);
     var options = {
@@ -43,7 +44,8 @@
     title: 'First Marker!'
   })
 
-  $.getJSON('http://events2339.azurewebsites.net/api/events/getevents', function (jsonPayload) {
+  var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.j+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
+  $.getJSON(url, function (jsonPayload) {
     $.each(jsonPayload, function(i, item){
       var marker = new google.maps.Marker({
         position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
