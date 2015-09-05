@@ -53,13 +53,28 @@
         title: 'test_title'
       });
 
+      markers.push(marker);
+
     });
+
+    function setMapOnAll(map) {
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+      }
+    }
+
+    function clearMarkers() {
+       setMapOnAll(null);
+    }
 
     map.addListener('idle', function()
     {
       var bounds = map.getBounds();
 
       var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.j+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
+
+      clearMarkers();
+      markers = [];
 
       console.log(bounds);
     });
