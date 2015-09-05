@@ -38,7 +38,7 @@
 
   map = new google.maps.Map(document.getElementById('map'), options);
 
-  var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+"40.70487622158365"+","+"-74.02377424087524"+"&ne="+ "40.7205879103011" +","+"-73.98811158981323";
+  var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll=40.7127,-74.0059&radius=5000";
   $.getJSON(url, function (jsonPayload) {
     $.each(jsonPayload, function(i, item){
         var marker = new google.maps.Marker({
@@ -67,7 +67,7 @@
       var bounds = map.getBounds();
       var center = map.getCenter();
 
-      var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.j+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
+      var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
 
       clearMarkers();
       markers = [];
