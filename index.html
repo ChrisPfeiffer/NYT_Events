@@ -26,6 +26,7 @@
     $(document).ready(initMap);
 
   var map;
+  var markers = [];
   function initMap() {
     var latlng = new google.maps.LatLng(40.7127,-74.0059);
     var options = {
@@ -56,11 +57,12 @@
     {
       var bounds = map.getBounds();
 
-      var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.J+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
+      var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.j+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
 
 
 
-      console.log(url);
+
+      console.log(map.markers.length);
     });
 
   });      
