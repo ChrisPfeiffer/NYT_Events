@@ -88,7 +88,7 @@
       $.each(jsonPayload, function(i, item){
         var infoWindow = new google.maps.InfoWindow({
           content: item.web_description;
-        })
+        });
         var marker = new google.maps.Marker({
           position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
           map: map,
