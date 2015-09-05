@@ -69,16 +69,19 @@
 
       clearMarkers();
       markers = [];
+      
 
-      $.getJSON(url, function(jsonPayload){
+      $.getJSON(url, function (jsonPayload) {
         $.each(jsonPayload, function(i, item){
           var marker = new google.maps.Marker({
-          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
-          map: map,
-          title: 'test_title'
+            position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
+            map: map,
+            title: 'test_title'
         });
-          markers.push(marker);
-      });
+
+      markers.push(marker);
+
+    });
 
       console.log(bounds);
     });
