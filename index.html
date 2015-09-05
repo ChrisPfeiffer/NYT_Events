@@ -92,10 +92,15 @@
         var marker = new google.maps.Marker({
           position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
           map: map,
-          title: 'test_title'
+          title: item.event_name
+        });
+
+        marker.addListener('click', function(){
+          infoWindow.open(map, marker);
         });
 
         markers.push(marker);
+        infoWindows.push(infoWindow);
 
       });
     });
@@ -134,6 +139,7 @@
 
     clearMarkers();
     markers = [];
+    infoWindows = [];
 
     refreshMap(url);
 
@@ -147,6 +153,7 @@
 
       clearMarkers();
       markers = [];
+      infoWindows = [];
 
       refreshMap(url);   
 
