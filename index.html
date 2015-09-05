@@ -80,6 +80,26 @@
   var map;
   var markers = [];
   var center;
+  var infoWindows = [];
+
+  function refreshMap(url)
+  {
+      $.getJSON(url, function (jsonPayload) {
+      $.each(jsonPayload, function(i, item){
+        var infoWindow = new google.maps.InfoWindow({
+          content: item.web_description;
+        })
+        var marker = new google.maps.Marker({
+          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
+          map: map,
+          title: 'test_title'
+        });
+
+        markers.push(marker);
+
+      });
+    });
+  }
 
   function initMap() {
     var latlng = new google.maps.LatLng(40.7127,-74.0059);
@@ -92,21 +112,8 @@
     map = new google.maps.Map(document.getElementById('map'), options);
 
     var url = buildUrl(map.getCenter());//"http://events2339.azurewebsites.net/api/events/getevents?parameters=ll=40.7127,-74.0059&radius=5000";
-    $.getJSON(url, function (jsonPayload) {
-      $.each(jsonPayload, function(i, item){
-        var marker = new google.maps.Marker({
-          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
-          map: map,
-          title: 'test_title'
-        });
-
-        markers.push(marker);
-
-      });
-    });
-
-    //center.G = 40.7127;
-    //center.K = -74.0059;
+    
+    refreshMap(url);
 
     function setMapOnAll(map) {
       for (var i = 0; i < markers.length; i++) {
@@ -116,28 +123,19 @@
 
     function clearMarkers() {
      setMapOnAll(null);
-   }
+     }
 
    map.addListener('idle', function()
    {
 
-     center = map.getCenter();
+    center = map.getCenter();
 
     var url = buildUrl(center);//"http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
 
     clearMarkers();
     markers = [];
 
-    $.getJSON(url, function(jsonPayload){
-      $.each(jsonPayload, function(i, item){
-        var marker = new google.maps.Marker({
-          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
-          map: map,
-          title: 'test_title2'
-        });
-        markers.push(marker);
-      });
-    });
+    refreshMap(url);
 
     console.log(center);
   });
@@ -150,16 +148,7 @@
       clearMarkers();
       markers = [];
 
-      $.getJSON(url, function(jsonPayload){
-      $.each(jsonPayload, function(i, item){
-        var marker = new google.maps.Marker({
-          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
-          map: map,
-          title: 'test_title2'
-        });
-        markers.push(marker);
-      });
-    });      
+      refreshMap(url);   
 
    });
 
