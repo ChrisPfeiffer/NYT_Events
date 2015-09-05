@@ -50,7 +50,7 @@
       markers.push(marker);
 
     });
-  
+  });
 
     function setMapOnAll(map) {
       for (var i = 0; i < markers.length; i++) {
@@ -68,8 +68,8 @@
 
       var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.j+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
 
-      //clearMarkers();
-      //markers = [];
+      clearMarkers();
+      markers = [];
 
       //$.getJSON(url, function(jsonPayload){
         //$.each(jsonPayload, function(i, item){
@@ -78,16 +78,14 @@
           //map: map,
           //title: 'test_title'
         //});
-         // markers.push(marker);
+          //markers.push(marker);
         //});
       //});
-
-      //setMapOnAll(map);
 
       console.log(bounds);
     });
 
-    });        
+        
 };
 
 
