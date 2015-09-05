@@ -111,6 +111,8 @@
     });
     }
     else{moveFromClick=false;}
+    
+
   }
 
   function initMap() {
@@ -143,11 +145,12 @@
     center = map.getCenter();
 
     var url = buildUrl(center);//"http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
-
-    clearMarkers();
-    markers = [];
-    infoWindows = [];
-
+    if(!moveFromClick)
+    {
+      clearMarkers();
+      markers = [];
+      infoWindows = [];
+    }
     refreshMap(url);
 
     console.log(center);
@@ -157,11 +160,12 @@
    $('.checkbox').change(function(){
       
       var url = buildUrl(center);
-
-      clearMarkers();
-      markers = [];
-      infoWindows = [];
-
+      if(!moveFromClick)
+      {
+        clearMarkers();
+        markers = [];
+        infoWindows = [];
+      }
       refreshMap(url);   
 
    });
