@@ -81,9 +81,13 @@
   var markers = [];
   var center;
   var infoWindows = [];
+  boolean moveFromClick = false;
 
   function refreshMap(url)
   {
+      //don't refresh the map if the user just clicked to retrieve an info box
+      if(!moveFromClick)
+      {
       $.getJSON(url, function (jsonPayload) {
       $.each(jsonPayload, function(i, item){
         var infoWindow = new google.maps.InfoWindow({
@@ -96,6 +100,7 @@
         });
 
         marker.addListener('click', function(){
+          moveFromClick = true;
           infoWindow.open(map, marker);
         });
 
@@ -104,6 +109,8 @@
 
       });
     });
+    }
+    else{moveFromClick=false;}
   }
 
   function initMap() {
