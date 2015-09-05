@@ -56,10 +56,11 @@
     {
       var bounds = map.getBounds();
 
-      var url = "http://events2339.azurewebsites.net/api/events/getevents";
+      var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.J+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
 
 
-      console.log(bounds);
+
+      console.log(url);
     });
 
   });      
