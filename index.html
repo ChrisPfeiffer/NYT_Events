@@ -48,6 +48,7 @@
   <!--create th map opject-->
   <script type="text/javascript">
 
+  //builds the url based on the location of the center of the map and the state of the checkboxes
   function buildUrl(center)
   {
     var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&facetSearch=category:(";
@@ -61,6 +62,7 @@
     if($('#Dance').is(':checked')){url=url+"+Dance"}
     if($('#Comedy').is(':checked')){url=url+"+Comedy"}
     if($('#Classical').is(':checked')){url=url+"+Classical"}
+    return url;
   }
 
   $(document).ready(initMap);
