@@ -13,7 +13,7 @@
   <br/>
   <div>
   <ul class="checkbox-grid">
-    <li><input type="checkbox" name ="Movies" id="Movies" value = "valMovies" /> <label for = "Movies">Movies</label></li>
+    <li><input type="checkbox" name ="Movies" id="Movies" value = "valMovies" checked="checked" /> <label for = "Movies">Movies</label></li>
     <li><input type="checkbox" name ="Theater" id="Theater" value = "valTheater" /> <label for = "Theater">Theater</label></li>
     <li><input type="checkbox" name ="Art" id="Art" value = "valArt" /> <label for = "Art">Art</label></li>
     <li><input type="checkbox" name ="spareTimes" id="spareTimes" value = "valspareTimes" /> <label for = "spareTimes">Spare Times</label></li>
@@ -23,6 +23,8 @@
     <li><input type="checkbox" name ="Dance" id="Dance" value = "valDance" /> <label for = "Dance">Dance</label></li>
     <li><input type="checkbox" name ="Comedy" id="Comedy" value = "valComedy" /> <label for = "Comedy">Comedy</label></li>
     <li><input type="checkbox" name ="Classical" id="Classical" value = "valClassical" /> <label for = "Classical">Classical</label></li>
+    <li>&nbsp</li>
+    <li>&nbsp</li>
   </ul>    
   </div>
   <br/>
@@ -108,6 +110,10 @@
 
     console.log(center);
   });
+
+   $(.'checkbox').change(function(){
+    console.log('checkbox changed');
+   });
 
  };
 
