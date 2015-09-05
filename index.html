@@ -48,10 +48,20 @@
   <!--create th map opject-->
   <script type="text/javascript">
 
+  function buildUrl(center)
+  {
+    console.log($('#Movies').is(':checked'));
+    console.log(center.G);
+    console.log(center.K);
+  }
+
   $(document).ready(initMap);
 
   var map;
   var markers = [];
+  var center;
+
+
 
   function initMap() {
     var latlng = new google.maps.LatLng(40.7127,-74.0059);
@@ -77,6 +87,9 @@
       });
     });
 
+    center.G = 40.7127;
+    center.K = -74.0059;
+
     function setMapOnAll(map) {
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
@@ -89,8 +102,8 @@
 
    map.addListener('idle', function()
    {
-    var bounds = map.getBounds();
-    var center = map.getCenter();
+
+     center = map.getCenter();
 
     var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
 
@@ -113,7 +126,7 @@
 
    //the change of a checkbox should cause a new call to the server   
    $('.checkbox').change(function(){
-      console.log($('#Movies').is(':checked'));
+      builUrl(center);
    });
 
  };
