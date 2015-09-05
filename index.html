@@ -44,8 +44,6 @@
     title: 'First Marker!'
   })
 
-  var bounds = map.getBounds();
-  
   var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.j+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
   $.getJSON(url, function (jsonPayload) {
     $.each(jsonPayload, function(i, item){
@@ -63,10 +61,7 @@
 
       var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+bounds.Ja.G+","+bounds.Ea.j+"&ne="+bounds.Ja.j +","+bounds.Ea.G;
 
-
-
-
-      console.log(map.markers.length);
+      console.log('idle');
     });
 
   });      
