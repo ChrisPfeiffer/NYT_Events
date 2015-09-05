@@ -37,12 +37,6 @@
   };
 
   map = new google.maps.Map(document.getElementById('map'), options);
-  
-  var marker = new google.maps.Marker({
-    position: {lat: 40.7127, lng: -74.0059},
-    map: map,
-    title: 'First Marker!'
-  })
 
   var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=sw="+"40.70487622158365"+","+"-74.02377424087524"+"&ne="+ "40.7205879103011" +","+"-73.98811158981323";
   $.getJSON(url, function (jsonPayload) {
