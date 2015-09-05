@@ -12,20 +12,20 @@
   <h3 class="text-center">Categories</h3>
   <br/>
   <div>
-  <ul class="checkbox-grid">
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="Movies" id="Movies" value = "valMovies" /> <label for = "Movies">Movies</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="Theater" id="Theater" value = "valTheater" /> <label for = "Theater">Theater</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="Art" id="Art" value = "valArt" /> <label for = "Art">Art</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="spareTimes" id="spareTimes" value = "valspareTimes" /> <label for = "spareTimes">Spare Times</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="forChildren" id="forChildren" value = "valforChildren" /> <label for = "forChildren">For Children</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="Jazz" id="Jazz" value = "valJazz" /> <label for = "Jazz">Jazz</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="Pop" id="Pop" value = "valPop" /> <label for = "Pop">Pop</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="Dance" id="Dance" value = "valDance" /> <label for = "Dance">Dance</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="Comedy" id="Comedy" value = "valComedy" /> <label for = "Comedy">Comedy</label></li>
-    <li><input class="checkbox" type="checkbox" checked="checked" name ="Classical" id="Classical" value = "valClassical" /> <label for = "Classical">Classical</label></li>
-    <li>&nbsp</li>
-    <li>&nbsp</li>
-  </ul>    
+    <ul class="checkbox-grid">
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="Movies" id="Movies" value = "valMovies" /> <label for = "Movies">Movies</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="Theater" id="Theater" value = "valTheater" /> <label for = "Theater">Theater</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="Art" id="Art" value = "valArt" /> <label for = "Art">Art</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="spareTimes" id="spareTimes" value = "valspareTimes" /> <label for = "spareTimes">Spare Times</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="forChildren" id="forChildren" value = "valforChildren" /> <label for = "forChildren">For Children</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="Jazz" id="Jazz" value = "valJazz" /> <label for = "Jazz">Jazz</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="Pop" id="Pop" value = "valPop" /> <label for = "Pop">Pop</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="Dance" id="Dance" value = "valDance" /> <label for = "Dance">Dance</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="Comedy" id="Comedy" value = "valComedy" /> <label for = "Comedy">Comedy</label></li>
+      <li><input class="checkbox" type="checkbox" checked="checked" name ="Classical" id="Classical" value = "valClassical" /> <label for = "Classical">Classical</label></li>
+      <li>test</li>
+      <li>test</li>
+    </ul>    
   </div>
   <br/>
   <br/>
@@ -52,78 +52,78 @@
   function buildUrl(center)
   {
     var url = "http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&facetSearch=category:(";
-    if($('#Movies').is(':checked')){url=url+"Movies"}
-    if($('#Theater').is(':checked')){url=url+"+Theater"}
-    if($('#Art').is(':checked')){url=url+"+Art"}
-    if($('#spareTimes').is(':checked')){url=url+"+spareTimes"}
-    if($('#forChildren').is(':checked')){url=url+"+forChildren"}
-    if($('#Jazz').is(':checked')){url=url+"+Jazz"}
-    if($('#Pop').is(':checked')){url=url+"+Pop"}
-    if($('#Dance').is(':checked')){url=url+"+Dance"}
-    if($('#Comedy').is(':checked')){url=url+"+Comedy"}
-    if($('#Classical').is(':checked')){url=url+"+Classical"}
-    url = url + "), borough:(";
+      if($('#Movies').is(':checked')){url=url+"Movies"}
+      if($('#Theater').is(':checked')){url=url+"+Theater"}
+      if($('#Art').is(':checked')){url=url+"+Art"}
+      if($('#spareTimes').is(':checked')){url=url+"+spareTimes"}
+      if($('#forChildren').is(':checked')){url=url+"+forChildren"}
+      if($('#Jazz').is(':checked')){url=url+"+Jazz"}
+      if($('#Pop').is(':checked')){url=url+"+Pop"}
+      if($('#Dance').is(':checked')){url=url+"+Dance"}
+      if($('#Comedy').is(':checked')){url=url+"+Comedy"}
+      if($('#Classical').is(':checked')){url=url+"+Classical"}
+      url = url + "), borough:(";
 
-    if($('#Manhattan').is(':checked')){url=url+"Manhattan"}
-    if($('#Brooklyn').is(':checked')){url=url+"+Brooklyn"}
-    if($('#Queens').is(':checked')){url=url+"+Queens"}
-    if($('#Bronx').is(':checked')){url=url+"+Bronx"}
-    if($('#TheBronx').is(':checked')){url=url+"+The Bronx"}
-    if($('#StatenIsland').is(':checked')){url=url+"+Staten Island"}
-    url=url+")";
+      if($('#Manhattan').is(':checked')){url=url+"Manhattan"}
+      if($('#Brooklyn').is(':checked')){url=url+"+Brooklyn"}
+      if($('#Queens').is(':checked')){url=url+"+Queens"}
+      if($('#Bronx').is(':checked')){url=url+"+Bronx"}
+      if($('#TheBronx').is(':checked')){url=url+"+The Bronx"}
+      if($('#StatenIsland').is(':checked')){url=url+"+Staten Island"}
+      url=url+")";
 
-    return url;
-  }
+return url;
+}
 
-  $(document).ready(initMap);
+$(document).ready(initMap);
 
-  var map;
-  var markers = [];
-  var center;
-  var infoWindows = [];
-  var moveFromClick = false;
+var map;
+var markers = [];
+var center;
+var infoWindows = [];
+var moveFromClick = false;
 
-  function refreshMap(url)
-  {
+function refreshMap(url)
+{
       //don't refresh the map if the user just clicked to retrieve an info box
       if(!moveFromClick)
       {
-      $.getJSON(url, function (jsonPayload) {
-      $.each(jsonPayload, function(i, item){
-        var infoWindow = new google.maps.InfoWindow({
-          content: '<h4>'+item.event_name+'</h4><br/>'+ item.web_description
-        });
-        var marker = new google.maps.Marker({
-          position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
-          map: map,
-          title: item.event_name
-        });
+        $.getJSON(url, function (jsonPayload) {
+          $.each(jsonPayload, function(i, item){
+            var infoWindow = new google.maps.InfoWindow({
+              content: '<h4>'+item.event_name+'</h4><br/>'+ item.web_description
+            });
+            var marker = new google.maps.Marker({
+              position: {lat: parseFloat(item.geocode_latitude), lng: parseFloat(item.geocode_longitude)},
+              map: map,
+              title: item.event_name
+            });
 
-        marker.addListener('click', function(){
-          moveFromClick = true;
-          infoWindow.open(map, marker);
+            marker.addListener('click', function(){
+              moveFromClick = true;
+              infoWindow.open(map, marker);
+            });
+
+            markers.push(marker);
+            infoWindows.push(infoWindow);
+
+          });
         });
+      }
+      else{moveFromClick=false;}
 
-        markers.push(marker);
-        infoWindows.push(infoWindow);
 
-      });
-    });
     }
-    else{moveFromClick=false;}
-    
 
-  }
+    function initMap() {
+      var latlng = new google.maps.LatLng(40.7127,-74.0059);
+      var options = {
+        zoom: 15,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
 
-  function initMap() {
-    var latlng = new google.maps.LatLng(40.7127,-74.0059);
-    var options = {
-      zoom: 15,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    map = new google.maps.Map(document.getElementById('map'), options);
+      map = new google.maps.Map(document.getElementById('map'), options);
 
     var url = buildUrl(map.getCenter());//"http://events2339.azurewebsites.net/api/events/getevents?parameters=ll=40.7127,-74.0059&radius=5000";
     
@@ -137,7 +137,7 @@
 
     function clearMarkers() {
      setMapOnAll(null);
-     }
+   }
 
    map.addListener('idle', function()
    {
@@ -158,17 +158,17 @@
 
    //the change of a checkbox should cause a new call to the server   
    $('.checkbox').change(function(){
-      
-      var url = buildUrl(center);
-      if(!moveFromClick)
-      {
-        clearMarkers();
-        markers = [];
-        infoWindows = [];
-      }
-      refreshMap(url);   
 
-   });
+    var url = buildUrl(center);
+    if(!moveFromClick)
+    {
+      clearMarkers();
+      markers = [];
+      infoWindows = [];
+    }
+    refreshMap(url);   
+
+  });
 
  };
 
