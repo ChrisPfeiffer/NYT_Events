@@ -107,6 +107,10 @@ function refreshMap(url)
     console.log(center);
   });
 
+   $('#clusterTruckButton').click(function(){
+      map.position = {lat:39.781167, lng:-86.161309}
+   })
+
    //the change of a checkbox should cause a new call to the server   
    $('.checkbox').change(function(){
 
