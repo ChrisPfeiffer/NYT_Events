@@ -76,7 +76,7 @@ function refreshMap(url)
 
       map = new google.maps.Map(document.getElementById('map'), options);
 
-    var url = buildUrl(map.getCenter());//"http://events2339.azurewebsites.net/api/events/getevents?parameters=ll=40.7127,-74.0059&radius=5000";
+    var url = buildUrl(map.getCenter());
     
     refreshMap(url);
 
@@ -95,7 +95,7 @@ function refreshMap(url)
 
     center = map.getCenter();
 
-    var url = buildUrl(center);//"http://events2339.azurewebsites.net/api/events/getevents?parameters=ll="+center.G+","+center.K+"&radius=5000";
+    var url = buildUrl(center);
     if(!moveFromClick)
     {
       clearMarkers();
