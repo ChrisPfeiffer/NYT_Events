@@ -108,7 +108,8 @@ function refreshMap(url)
   });
 
    $('#clusterTruckButton').click(function(){
-      map.position = {lat:39.781167, lng:-86.161309}
+      console.log('navigating to cluster truck');
+      map.setCenter({lat:39.781167, lng:-86.161309});
    })
 
    //the change of a checkbox should cause a new call to the server   
